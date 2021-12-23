@@ -1,4 +1,5 @@
 import {Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
+import { v4 as uuid} from 'uuid';
 
 @Entity("cidades")
 export class Cidade {
@@ -20,5 +21,9 @@ export class Cidade {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    constructor() {
+        if(!this.id) this.id = uuid();
+    }
 
 }
