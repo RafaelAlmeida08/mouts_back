@@ -3,7 +3,7 @@ import { Cidade } from "../../../../../../infrastructure/database/entities/Cidad
 import { CidadesRepository } from "../../../../../../infrastructure/database/repositories/CidadesRepository";
 import { ICidade } from "../../dto/cidade.dto";
 
-export default class Service {
+export default class CriarCidadeService {
     async execute({nome, estado, pais} : ICidade) : Promise<Cidade> {        
         const repository = getCustomRepository(CidadesRepository);
 

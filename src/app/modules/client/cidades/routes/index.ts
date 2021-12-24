@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import Controller from '../useCases/criar/Controller';
+import CriarCidadeController from '../useCases/criar/CriarCidadeController';
+import ListarCidadesController from '../useCases/listar/ListarCidadesController';
 
 const cidadesRoutes = Router();
 
-cidadesRoutes.post('', new Controller().handle)
+cidadesRoutes.post('', new CriarCidadeController().handle);
+cidadesRoutes.get('', new ListarCidadesController().handle)
 
 export { cidadesRoutes }

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import Service from "./Service";
+import Service from "./CriarCidadeService";
 
-export default class Controller {
+export default class CriarCidadeController {
     async handle(request: Request, response: Response) {
         const { nome, estado, pais } = request.body;
 
