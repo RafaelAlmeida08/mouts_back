@@ -1,4 +1,4 @@
-import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, Timestamp, UpdateDateColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, Timestamp} from "typeorm";
 import { v4 as uuid} from 'uuid';
 import { Localidade } from "./Localidade";
 
@@ -17,7 +17,7 @@ export class Nota {
     
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
     created_at: Timestamp;
-    
+
     constructor() {
         if(!this.id) this.id = uuid();
     }
