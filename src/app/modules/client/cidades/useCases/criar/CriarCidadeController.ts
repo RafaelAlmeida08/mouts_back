@@ -6,7 +6,7 @@ export default class CriarCidadeController {
         const { nome, estado, pais } = request.body;
 
         const service = new Service();
-
+        
         const cidade = await service.execute({nome, estado, pais});
 
         return response.status(201).json(cidade);
