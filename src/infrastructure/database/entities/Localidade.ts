@@ -1,7 +1,8 @@
-import { Column, Entity, JoinColumn, ManyToOne,PrimaryColumn, Timestamp } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne,OneToMany,PrimaryColumn, Timestamp } from "typeorm";
 import { v4 as uuid} from 'uuid';
 import { Cidade } from "./Cidade";
 import { Tipo } from "./Tipo";
+import { Nota } from "./Nota";
 
 @Entity("localidades")
 export class Localidade {
@@ -14,6 +15,9 @@ export class Localidade {
 
     @Column({type: "varchar", length: 255})
     endereco: string;
+
+    @OneToMany(() => Nota, nota => nota.localidade)
+    notas: Nota[];
 
     @ManyToOne(() => Tipo, { eager: true, onDelete: "CASCADE" })
     @JoinColumn({name: "localidade_tipo"})
