@@ -7,6 +7,7 @@ export class ListarLocalidadeService {
         const repository = getCustomRepository(LocalidadesRepository);
 
         const local = await repository.findOne({
+            relations: ['notas'],
             where: {
                 id: id
             }
