@@ -6,6 +6,7 @@ import { AtualizarLocalidadeController } from '../useCases/atualizar/AtualizarLo
 import CriarLocalidadeController from '../useCases/criar/CriarLocalidadeController';
 import { DeletarLocalidadeController } from '../useCases/deletar/DeletarLocalidadeController';
 import { ListarLocalidadesController } from '../useCases/listar/ListarLocalidadesController';
+import { ListarLocalidadeController } from '../useCases/show/ListarLocalidadeController';
 
 const localidadesRoutes = Router();
 
@@ -13,5 +14,6 @@ localidadesRoutes.post('', ensureFields, ensureExistsCidade, new CriarLocalidade
 localidadesRoutes.get('', new ListarLocalidadesController().handle);
 localidadesRoutes.put('/:id', ensureFields, ensureExistsLocalidade, ensureExistsCidade , new AtualizarLocalidadeController().handle);
 localidadesRoutes.delete('/:id', ensureExistsLocalidade, new DeletarLocalidadeController().handle);
+localidadesRoutes.get('/:id', ensureExistsLocalidade, new ListarLocalidadeController().handle)
 
 export { localidadesRoutes } 
