@@ -7,7 +7,7 @@ export const alreadyExistsLocalidade = async (request: Request, response: Respon
     const localidade = await service.execute(request.body.nome);
 
     if(localidade)
-        return response.status(400).json({messagem: 'Localidade já existe!'});
+        return response.status(400).json({message: 'Localidade já existe!'});
     else
         next();
 }

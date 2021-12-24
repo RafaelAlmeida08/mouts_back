@@ -8,7 +8,7 @@ export const ensureExistsCidade = async (request: Request, response: Response, n
     const cidade = await service.execute(request.body.cidade);
 
     if(!cidade)
-        return response.status(404).json({messagem: 'Cidade não encontrada!'});
+        return response.status(404).json({message: 'Cidade não encontrada!'});
     else
         next();
 }

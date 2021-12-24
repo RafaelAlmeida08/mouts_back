@@ -7,7 +7,7 @@ export const ensureExistsLocalidade = async (request: Request, response: Respons
     const localidade = await service.execute(request.params.id);
 
     if(!localidade)
-        return response.status(404).json({messagem: 'Localidade não encontrada!'});
+        return response.status(404).json({message: 'Localidade não encontrada!'});
     else
         next();
 }
