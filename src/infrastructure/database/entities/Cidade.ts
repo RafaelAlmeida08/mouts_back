@@ -1,4 +1,4 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, PrimaryColumn, Timestamp, UpdateDateColumn} from "typeorm";
 import { v4 as uuid} from 'uuid';
 
 @Entity("cidades")
@@ -17,10 +17,10 @@ export class Cidade {
     pais: string;
 
     @CreateDateColumn()
-    created_at: Date;
+    created_at: Timestamp;
 
     @UpdateDateColumn()
-    updated_at: Date;
+    updated_at: Timestamp;
 
     constructor() {
         if(!this.id) this.id = uuid();
