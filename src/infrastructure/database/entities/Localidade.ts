@@ -26,9 +26,6 @@ export class Localidade {
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
     created_at: Timestamp;
 
-    @Column({ type: "timestamp", onUpdate: 'CURRENT_TIMESTAMP', nullable: true })
-    updated_at: Timestamp;
-
     constructor() {
         if(!this.id) this.id = uuid();
     }
