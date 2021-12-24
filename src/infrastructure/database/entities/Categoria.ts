@@ -3,7 +3,7 @@ import {Column, Entity, PrimaryColumn,Timestamp} from "typeorm";
 @Entity("categorias")
 export class Categoria {
 
-    @PrimaryColumn({select: false})
+    @PrimaryColumn()
     id: number;
 
     @Column({type: "varchar", length: 255})
