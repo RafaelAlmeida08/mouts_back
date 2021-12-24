@@ -1,0 +1,404 @@
+{
+    "openapi" : "3.0.0",
+    "info": {
+        "title" : "Mouts backend Test",
+        "description": "Api feita para o teste fullstack da empresa Mouts",
+        "contact" : {
+            "email" : "rafaelalmeida.dev08@gmail.com"
+        },
+        "version" : "1.0.0"
+    },
+    "servers": [
+        {
+            "url" : "http://localhost:5000",
+            "description": "API de teste"
+        },
+        {
+            "url" : "https://moutsback.herokuapp.com",
+            "description" : "Api de Produção"
+        }
+    ],
+    "paths" : {
+        "/cidades" : {
+            "post": {
+                "summary": "Cadastro de Cidades",
+                "description" : "Rota para cadastro de cidades",
+                "tags": ["Cidades"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/Cidade"
+                            },
+                            "examples": {
+                                "cidade": {
+                                    "value": {
+                                        "nome" : "São Gonçalo",
+                                        "estado": "RJ",
+                                        "pais" : "Brasil"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {                    
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Cidade"                                    
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "get": {
+                "summary" : "Listagem de Cidades",
+                "description" : "Rota para listar todos as cidades",
+                "tags": ["Cidades"],
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#components/schemas/Cidade"     
+                                    }                                                                   
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            
+            }
+        },
+        "/localidades" : {
+            "post": {
+                "summary": "Cadastro de uma localidade",
+                "description" : "Rota para cadastro de localidades",
+                "tags": ["Localidades"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/Localidade"
+                            },
+                            "examples": {
+                                "localidade": {
+                                    "value": {
+                                        "nome" : "Bar do João",
+                                        "categoria": "1",
+                                        "endereco" : "Rua Imaginária, 321",
+                                        "cidade" : "0d133369-a669-4169-bd48-a6ac248efa3d"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {                    
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Localidade"                                    
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "get": {
+                "summary" : "Listagem de Localidades",
+                "description" : "Rota para listar todos as cidades",
+                "tags": ["Localidades"],
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#components/schemas/Localidade"     
+                                    }                                                                   
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            
+            }
+        },
+        "/localidades/{id}" : {
+            "delete": {
+                "summary": "Remover uma localidade",
+                "description" : "Rota para remoção de  localidade",
+                "tags": ["Localidades"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da localidade",
+                        "required": true
+                    }
+                ],                
+                "responses": {                    
+                    "200": {
+                        "description": "Deleted"                        
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Buscar uma localidade",
+                "description" : "Rota para busca de uma localidade",
+                "tags": ["Localidades"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da localidade",
+                        "required": true
+                    }
+                ],                
+                "responses": {                    
+                    "200": {                                        
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Localidade"                                    
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualiza uma localidade",
+                "description" : "Rota para atualização de uma localidade",
+                "tags": ["Localidades"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da localidade",
+                        "required": true
+                    }
+                ],   
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/Localidade"
+                            },
+                            "examples": {
+                                "localidade": {
+                                    "value": {
+                                        "nome" : "Bar do João",
+                                        "categoria": "1",
+                                        "endereco" : "Rua Imaginária, 321",
+                                        "cidade" : "0d133369-a669-4169-bd48-a6ac248efa3d"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },             
+                "responses": {                    
+                    "200": {                                        
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Localidade"                                    
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }          
+        },
+        "/notas" : {
+            "post": {
+                "summary": "Cadastro de uma nota para uma localidade",
+                "description" : "Rota para cadastro de notas para determinada localidade",
+                "tags": ["Notas"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/Nota"
+                            },
+                            "examples": {
+                                "localidade": {
+                                    "value": {
+                                        "descricao" : "ótimo lugar para jantar!",                                        
+                                        "localidade" : "fbbab624-cde3-400d-9a49-dd7bceabba9a"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {                    
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Localidade"                                    
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }           
+        },
+        "/categorias" : {            
+            "get": {
+                "summary" : "Listagem de categorias",
+                "description" : "Rota para listar todas as categorias",
+                "tags": ["Categorias"],
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#components/schemas/Categoria"     
+                                    }                                                                   
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            
+            }
+        }
+    },
+    "components" : {
+        "schemas": {
+            "Cidade" : {
+                "type": "object",
+                "properties" : {
+                    "nome" : {
+                        "type": "string"
+                    },
+                    "estado": {
+                        "type" : "string"
+                    },
+                    "pais": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Localidade" : {
+                "type": "object",
+                "properties" : {
+                    "nome" : {
+                        "type": "string"
+                    },
+                    "categoria": {
+                        "type" : "number"
+                    },
+                    "endereco": {
+                        "type": "string"
+                    },
+                    "cidade": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Nota": {
+                "type": "object",
+                "properties" : {
+                    "descricao" : {
+                        "type": "string"
+                    },
+                    "localidade": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Categoria": {
+                "type": "object",
+                "properties" : {
+                    "id" : {
+                        "type": "string"
+                    },
+                    "nome": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
