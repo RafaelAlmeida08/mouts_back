@@ -16,10 +16,10 @@ export class Cidade {
     @Column({type: "varchar", length: 50})
     pais: string;
 
-    @CreateDateColumn()
+    @Column({type: 'timestamp'})
     created_at: Timestamp;
 
-    @UpdateDateColumn()
+    @Column({type: 'timestamp'})
     updated_at: Timestamp;
 
     constructor() {
