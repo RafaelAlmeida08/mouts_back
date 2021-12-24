@@ -7,6 +7,6 @@ const routes = Router();
 
 routes.use('/cidades', cidadesRoutes);
 routes.use('/localidades', localidadesRoutes);
-routes.use('/nota', notasRoutes);
+routes.use('/notas', notasRoutes);
 
 export { routes } 

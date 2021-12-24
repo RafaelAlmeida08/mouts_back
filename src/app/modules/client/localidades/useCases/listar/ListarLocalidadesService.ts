@@ -6,7 +6,9 @@ export class ListarLocalidadesService {
     async execute() : Promise<Localidade[]> {        
         const repository = getCustomRepository(LocalidadesRepository);     
         
-        const list = await repository.find();
+        const list = await repository.find({
+            relations: ['notas']
+        });
         
         return list;
     }
