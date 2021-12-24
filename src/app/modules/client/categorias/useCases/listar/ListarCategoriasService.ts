@@ -1,9 +1,9 @@
 import { getCustomRepository } from "typeorm";
-import { Tipo } from "../../../../../../infrastructure/database/entities/Tipo";
+import { Categoria } from "../../../../../../infrastructure/database/entities/Categoria";
 import { CategoriasRepository } from "../../../../../../infrastructure/database/repositories/CategoriasRepository";
 
 export class ListarCategoriasService {
-    async execute() : Promise<Tipo[]> {
+    async execute() : Promise<Categoria[]> {
         const repository = getCustomRepository(CategoriasRepository);
 
         const list = await repository.find();

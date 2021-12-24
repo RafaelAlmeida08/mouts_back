@@ -1,7 +1,7 @@
 import {Column, Entity, PrimaryColumn,Timestamp} from "typeorm";
 
-@Entity("tipos")
-export class Tipo {
+@Entity("categorias")
+export class Categoria {
 
     @PrimaryColumn({select: false})
     id: number;

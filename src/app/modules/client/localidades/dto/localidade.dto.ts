@@ -1,9 +1,9 @@
 import { Cidade } from "../../../../../infrastructure/database/entities/Cidade";
-import { Tipo } from "../../../../../infrastructure/database/entities/Tipo";
+import { Categoria } from "../../../../../infrastructure/database/entities/Categoria";
 
 export interface ILocalidade {
     nome: string,
     endereco: string,     
-    tipo: Tipo, 
+    categoria: Categoria, 
     cidade: Cidade,   
 }

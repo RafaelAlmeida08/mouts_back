@@ -4,10 +4,10 @@ import { LocalidadesRepository } from "../../../../../../infrastructure/database
 import { ILocalidade } from "../../dto/localidade.dto";
 
 export  class CriarLocalidadeService {
-    async execute({nome, tipo, endereco, cidade} : ILocalidade) : Promise<Localidade | any> {
+    async execute({nome, categoria, endereco, cidade} : ILocalidade) : Promise<Localidade | any> {
         const repository = getCustomRepository(LocalidadesRepository);     
         
-        const localidade = repository.create({nome,tipo,endereco,cidade});
+        const localidade = repository.create({nome,categoria,endereco,cidade});
 
         await repository.save(localidade);
         
